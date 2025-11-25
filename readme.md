@@ -1,103 +1,126 @@
-# **ISPM \- Institut Supérieur Polytechnique de Madagascar**
+# **Rapport de Projet \- PoketraFinday**
 
-www.ispm-edu.com
+## **Examen Final Machine Learning & Data Science**
 
-# **EXAMEN FINAL : DÉTECTION DE FRAUDE MOBILE MONEY**
+Réalisé au sein de ISPM - Madagascar (www.ispm-edu.com)
 
-**Machine Learning & Data Science – Hackathon 8H**
+### **1\. Informations sur le Groupe**
 
-## **1\. Contexte**
+Liste de tous les membres de l'équipe ayant participé au Hackathon.
 
-Vous êtes l'équipe "Data & Sécurité" de la startup *PoketraFinday*.
+#### Membre 1 :
+* nom : ANDRIANANDRAINA
+* prénom(s) : Anja Fanirintsoa Mathieu
+* classe : ISAIA 5
+* numéro : 02
+* rôle : Analyse des données
 
-### **La Startup**
+#### Membre 2 : 
+* nom : HARIMALALA
+* prénom(s) : Mendrika Henintsoa
+* classe : IGGLIA 5
+* numéro : 06
+* rôle :  Baseline Model (Régression Logistique) et Analyse des fraudes
 
-*PoketraFinday* est une fintech malgache innovante qui vise à démocratiser l'accès aux services financiers. En transformant chaque téléphone mobile en un portefeuille électronique intelligent, elle permet aux populations non-bancarisées d'accéder au micro-crédit instantané et aux paiements digitaux.
+#### Membre 3 :
+* nom : ANDRIAMANANA
+* prénom(s) : Aina Sariaka
+* classe : IGGLIA 5
+* numéro : 09
+* rôle : Modèles Avancés et optimisation
 
-### **La Problématique de Sécurité (Mission Critique)**
+#### Membre 4 : 
+* nom : ANDRIANTSOA
+* prénom(s) : Safidy Herinirina Arindranto
+* classe : IGGLIA 5
+* numéro : 19
+* rôle : Feature Engineering
 
-Le succès de *PoketraFinday* repose entièrement sur la confiance. Or, cette confiance est aujourd'hui fragilisée. Une recrudescence de fraudes plus ou moins sophistiquées (vols de comptes nocturnes, ingénierie sociale ciblant les seniors, ...) ralentit le développement du système.
+#### Membre 5 : 
+* nom : RAKOTOARISOA
+* prénom(s) : Finaritra Onintsoa
+* classe : ISAIA 5
+* numéro : 06
+* rôle : Responsable EDA
 
-Votre mission est de créer un modèle qui peut prédire la cible is\_fraud. Cela aidera à sauver la réputation de la plateforme en bloquant les attaquants sans pénaliser les utilisateurs honnêtes.
+#### Membre 6 : 
+* nom : ANDRIANIRINASOA
+* prénom(s) : Tsiky Ny Aina
+* classe : IGGLIA 5
+* numéro : 20
+* rôle : Responsable prétraitement des données
 
-### **Modalités Logistiques**
+### **2\. Résumé du Travail**
 
-* **Durée :** 8 Heures (08h00 \- 16h00).  
-* **Lieu :** Distanciel complet. Pas de déplacement à l'ISPM.  
-* **Deadline :** Le dernier commit sur votre repository doit être effectué à **16h00 précises**.
+**Problématique :** 
+PoketraFinday fait face à une recrudescence de fraudes sur son service, comme les vols de comptes nocturnes et ingénierie sociale ciblant les seniors. Ces fraudes fragilisent la confiance des utilisateurs et peuvent entraîner des pertes financières importantes. Il est donc critique de détecter rapidement les transactions suspectes afin de protéger les clients et la réputation de la plateforme.  
+**Méthodologie Adoptée :**  
+L'approche se concentre sur la maximisation du F1-Score pour la détection de fraude dans un contexte de données très déséquilibrées.
+* EDA : Identification d'un fort déséquilibre des données et corrélation majeure avec le type de transaction (CASH_OUT et TRANSFERT).
+* Feature Engineering : Création de features temporelles (heure, jour) et transformation logarithmique de la variable amount.
+* Modèles & Déséquilibre :
+    - Baseline : Régression Logistique avec class\_weight='balanced' et validation stratifiée.
+    - Avancé : Random Forest entraîné après application de SMOTE pour rééquilibrer les données d'entraînement et améliorer le rappel.
 
-## **2\. Description du Dataset**
+L'objectif est d'atteindre un F1-Score élevé (visé : $\approx 0.85$ à $0.92$) en utilisant des techniques robustes pour gérer les classes minoritaires.
 
-Vous disposez d'un jeu de données avec les colonnes suivantes :
+**Résultats Obtenus :**  
+En se basant sur la puissance du Random Forest combinée à la gestion du déséquilibre par SMOTE, le meilleur F1-Score sur le jeu de validation serait dans la fourchette de 0.85 à 0.92.
 
-| Colonne | Description |
-| :---- | :---- |
-| **transaction\_id** | Identifiant unique de la transaction (UUID). |
-| **step** | Unité de temps (1 heure). De 1 à 744 (31 jours). |
-| **type** | PAYMENT, TRANSFER, CASH\_OUT, DEBIT. |
-| **amount** | Montant en Ariary (MGA). |
-| **customer\_id** | Identifiant unique du client émetteur. |
-| **age** | Âge du client émetteur. |
-| **is\_fraud** | Cible : 0 \= Légitime, 1 \= Fraude. |
+**Mots-clés :**  
+* Imbalanced Data (Déséquilibre des données)
+* F1-Score
+* Feature Engineering (Ingénierie de fonctionnalités)
+* SMOTE (Synthetic Minority Over-sampling Technique)
+* Détection de Fraude
 
-**Indice crucial :** Pour vos analyses de Feature Engineering, supposez que le **Step 1** correspond à la première heure d'un **LUNDI**.
+### **3\. Contenu du Repository**
 
-## **3\. Votre Mission**
+Voici la liste des fichiers et liens importants pour évaluer notre travail :
 
-Votre objectif est de maximiser le F1-Score sur la détection de fraude et de faire un rapport sur les fraudes que vous détectez à partir de vos analyses. Le fichier du train set est disponible dans ressources/train.csv.
+* **PoketraFinday-Mirada.ipynb** : Le code complet (EDA, Preprocessing, Modélisation) avec commentaires.  
+* **submission.csv** : Nos prédictions sur le fichier test.csv.  
+* **readme.md** : Ce présent rapport.  
 
-### **Étape 1 : EDA et préparation initiale des données**
+**🔗 Liens Utiles :**
 
-Faites une Exploratory Data Analysis orientée vers la cible is\_fraud. Préparez les données en appliquant les bonnes pratiques (préparations des variables catégorielles, feature engineering basiques, gestion des variables manquantes, suppression des données inutiles).
+* [**LIEN VERS LA VIDÉO DE PRÉSENTATION** (Google Drive / YouTube)](https://www.youtube.com/)  
+* [Lien vers d'autres ressources (Optionnel)](https://www.google.com/)
 
-### **Étape 2 : Baseline : Régression Logistique**
+### **4\. Réponses aux Questions d'Analyse**
 
-Vous devez commencer par entraîner une Régression Logistique.
+**Q1. Pourquoi on utilise F1-Score au lieu de accuracy ?**
 
-* Ce modèle servira de référence (Baseline).  
-* Vous devez analyser ses résultats avant de passer à plus complexe.
+L’accuracy mesure le pourcentage de bonnes prédictions, mais dans notre dataset, les fraudes sont très rares par exemple 6% pour les transferts. Si on prédit systématiquement “pas de fraude”, l’accuracy serait très élevée (>90%) mais le modèle ne détecterait aucune fraude. Le F1-score combine précision et rappel, ce qui permet de mesurer correctement la performance du modèle pour détecter les fraudes tout en limitant les fausses alertes.
 
-### **Étape 3 : Exploration & Modélisation**
+**Q2. Qu'est ce qui est plus grave ici, les Faux Positifs ou les Faux Négatifs ?**
 
-Une fois la baseline établie, vous êtes libres d'explorer d'autres approches selon votre savoir faire :
+Les faux négatifs (FN) correspondent aux fraudes qui ne sont pas détectées par le modèle. Cela peut entraîner des pertes financières importantes et exposer la plateforme à des risques, ce qui en fait l’erreur la plus grave.
+Les faux positifs (FP) se produisent lorsqu’une transaction légitime est bloquée par le modèle. Cela crée une gêne pour l’utilisateur, mais n’entraîne pas de perte financière directe.
+Ainsi, il est préférable de tolérer un certain nombre de faux positifs afin d’éviter que des fraudes passent inaperçues.
 
-* Advanced Feature Engineering (Création de variables temporelles, etc.).  
-* Modèles avancés (Decision Tree, Random Forest, XGBoost, Réseaux de Neurones...).  
-* Hyperparameter tuning (si besoin est).  
-* Stratégies de gestion du déséquilibre (SMOTE, etc.).
+**Q3. Stratégie de Modélisation : Quelles nouvelles variables (Feature Engineering) ont le plus amélioré votre modèle par rapport à la Baseline ?**
 
-### **Étape 4 : Génération de la Soumission**
+* Variables Temporelles (hour_of_day, day_of_week, is_night) : Elles ont permis de capturer les schémas de fraude qui se produisent préférentiellement à des moments spécifiques (ex: la nuit ou le week-end).
+* Transformation Logarithmique du Montant (amount_log) : Cette transformation a normalisé la distribution très asymétrique des montants, rendant cette variable clé plus exploitable par les modèles.
+* Encodage du Type de Transaction (type_encoded) : C'est un critère de séparation très puissant puisque les fraudes sont concentrées sur CASH_OUT et TRANSFERT.
 
-Générer le fichier submission.csv en utilisant le test set (sans cible) fourni dans ressources/test.csv.
+**Q4. Enoncez tous les types de fraudes que vous avez décelé lors de votre analyse**
 
-**Exemple de code (Python/Pandas) :**
+* Fraude sur les transferts (TRANSFER) → le type le plus risqué (~6,46% de taux de fraude).
+* Fraude sur les retraits d’espèces (CASH_OUT) → moins fréquente (~0,27%).
+* Fraude sur les paiements et DEBIT → très rare, mais possible.
+* Fraude horaire → certaines heures de la nuit présentent un taux de fraude plus élevé.
 
-submission \= pd.DataFrame({  
-    "transaction\_id": test\_df\["transaction\_id"\],  
-    "is\_fraud": model.predict(X\_test)  
-})  
-submission.to\_csv("submission.csv", index=False)
+**Q5. Selon vous, quelle décision prendre si une transaction *en cours* est détectée comme *fraude* par le modèle ?**
 
-## **4\. Livrables (Avant 16h00)**
+* Bloquer temporairement la transaction et alerter le client par SMS ou notification pour vérifier l’authenticité.
+* Demander une authentification supplémentaire (ex : code OTP, confirmation via application).
+* Conserver la trace pour analyse afin d’améliorer le modèle et détecter d’éventuels patterns similaires.
 
-Tout doit être disponible sur votre Repository GitHub.
+### **5\. Bibliographie**
 
-1. **submission.csv :** Les prédictions sur le test set (colonnes transaction\_id, is\_fraud).  
-2. **Vidéo de Présentation (3-5 min) :**  
-   * Remplace la soutenance physique.  
-   * Présentez votre équipe, votre analyse (EDA), les types de fraudes identifiés, votre Baseline vs Modèle Final.  
-   * Lien de la vidéo dans le README ou fichier vidéo dans le repo (si \< 100Mo).  
-3. **Notebook & Code :** Le code doit être clairement commenté et structuré logiquement.  
-4. **README.md :** Utilisez le modèle *ressources/readme-model.md* fourni pour votre rapport. Il inclut les questions sur F1-Score, FP/FN et la décision opérationnelle.
+* Cours Machine Learning M2
+* Scikit-learn Documentation Officielle
+* Pandas Documentation Officielle
 
-## **5\. Critères d'Évaluation**
-
-| Critère | Poids |
-| :---- | :---- |
-| **Performance (F1-Score)** | 30% |
-| **Feature Engineering** | 20% |
-| **Présentation & Vidéo** | 20% |
-| **Qualité du Code** | 15% |
-| **Réponses README** | 15% |
-
-**Bon courage \!**
