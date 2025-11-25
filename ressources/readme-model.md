@@ -13,42 +13,42 @@ Liste de tous les membres de l'équipe ayant participé au Hackathon.
 * prénom(s) : Anja Fanirintsoa Mathieu
 * classe : ISAIA 5
 * numéro : 02
-* rôle : *(développeur, analyste, présentateur, ...)*
+* rôle : Analyse des données
 
 #### Membre 2 : 
 * nom : HARIMALALA
 * prénom(s) : Mendrika Henintsoa
 * classe : IGGLIA 5
 * numéro : 06
-* rôle : *(développeur, analyste, présentateur, ...)*
+* rôle :  Baseline Model (Régression Logistique) et Analyse des fraudes
 
 #### Membre 3 :
 * nom : ANDRIAMANANA
 * prénom(s) : Aina Sariaka
 * classe : IGGLIA 5
 * numéro : 09
-* rôle : *(développeur, analyste, présentateur, ...)*
+* rôle : Modèles Avancés et optimisation
 
 #### Membre 4 : 
 * nom : ANDRIANTSOA
 * prénom(s) : Safidy Herinirina Arindranto
 * classe : IGGLIA 5
 * numéro : 19
-* rôle : *(développeur, analyste, présentateur, ...)*
+* rôle : Feature Engineering
 
 #### Membre 5 : 
 * nom : RAKOTOARISOA
 * prénom(s) : Finaritra Onintsoa
 * classe : ISAIA 5
 * numéro : 06
-* rôle : *(développeur, analyste, présentateur, ...)*
+* rôle : Responsable EDA
 
 #### Membre 6 : 
 * nom : ANDRIANIRINASOA
 * prénom(s) : Tsiky Ny Aina
 * classe : IGGLIA 5
 * numéro : 20
-* rôle : *(développeur, analyste, présentateur, ...)*
+* rôle : Responsable prétraitement des données
 
 ### **2\. Résumé du Travail**
 
