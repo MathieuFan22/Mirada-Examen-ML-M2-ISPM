@@ -84,8 +84,7 @@ Voici la liste des fichiers et liens importants pour évaluer notre travail :
 
 **🔗 Liens Utiles :**
 
-* [**LIEN VERS LA VIDÉO DE PRÉSENTATION** (Google Drive / YouTube)](https://www.youtube.com/)  
-* [Lien vers d'autres ressources (Optionnel)](https://www.google.com/)
+* [**LIEN VERS LA VIDÉO DE PRÉSENTATION MIRADA** (Google Drive)](https://drive.google.com/drive/folders/16hGXV3S5sDAqJmhes8lGas8_8IXFkqu2?usp=sharing)
 
 ### **4\. Réponses aux Questions d'Analyse**
 
