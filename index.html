@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning Examen Machine Learning - ISPM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-6">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
+        
+        <!-- Header -->
+        <div class="bg-blue-900 text-white p-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-wide">ISPM - Machine Learning</h1>
+                    <p class="text-blue-200 mt-1 text-sm md:text-base">Examen Final (8 Heures)</p>
+                </div>
+                <div class="text-left md:text-right">
+                    <div class="font-semibold text-base md:text-lg"><i class="far fa-calendar-alt mr-2"></i>Mardi 25 Nov 2025</div>
+                    <div class="text-xs md:text-sm text-blue-200 mt-1">ESIIA5 – IGGLIA5 – IMTICIA5 – ISAIA5</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="p-4 md:p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Déroulement de la journée</h2>
+            
+            <!-- DESKTOP VIEW -->
+            <div class="hidden md:block overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 font-bold border-b border-gray-200">Heure</th>
+                            <th class="py-3 px-6 font-bold border-b border-gray-200">Activité</th>
+                            <th class="py-3 px-6 font-bold border-b border-gray-200">Mode</th>
+                            <th class="py-3 px-6 font-bold border-b border-gray-200">Détails & Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 text-sm">
+                        
+                        <!-- 08h00 -->
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-4 px-6 font-bold text-blue-600 whitespace-nowrap">08h00</td>
+                            <td class="py-4 px-6 font-semibold">Début de l'épreuve</td>
+                            <td class="py-4 px-6"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs">Distanciel</span></td>
+                            <td class="py-4 px-6">
+                                Sujet disponible sur GitHub. Début du Hackathon.
+                                <br><a href="https://github.com/AndryRAB/Exam-ml-master-m2" target="_blank" class="text-blue-600 hover:underline mt-1 inline-flex items-center font-semibold"><i class="fab fa-github mr-1"></i>Repo GitHub</a>
+                                <br><a href="/sujet.html" target="_blank" class="text-blue-600 hover:underline mt-1 inline-flex items-center font-semibold"><i class="fab fa-github mr-1"></i>Sujet au format HTML</a>
+                            </td>
+                        </tr>
+
+                        <!-- 09h30 Deadline -->
+                        <tr class="border-b border-gray-200 bg-orange-50 hover:bg-orange-100 border-l-4 border-l-orange-400">
+                            <td class="py-4 px-6 font-bold text-orange-600 whitespace-nowrap">09h30</td>
+                            <td class="py-4 px-6 font-bold text-gray-700">Date limite d'inscription</td>
+                            <td class="py-4 px-6"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs">En ligne</span></td>
+                            <td class="py-4 px-6">
+                                Inscription du groupe obligatoire via <a href="https://forms.gle/krV2Ad1p8p8uN5ja9" class="text-blue-600 underline font-bold">Google Form</a>.
+                            </td>
+                        </tr>
+
+                        <!-- Hackathon -->
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-4 px-6 font-bold text-gray-600 whitespace-nowrap">08h00 - 16h00</td>
+                            <td class="py-4 px-6">Développement & Vidéo</td>
+                            <td class="py-4 px-6"><span class="bg-gray-100 text-gray-600 py-1 px-3 rounded-full text-xs">Libre</span></td>
+                            <td class="py-4 px-6">
+                                EDA, Modélisation, Enregistrement de la vidéo de présentation.
+                            </td>
+                        </tr>
+
+                        <!-- 16h00 DEADLINE -->
+                        <tr class="border-b border-gray-200 bg-red-50 hover:bg-red-100 border-l-4 border-l-red-500">
+                            <td class="py-4 px-6 font-bold text-red-800 whitespace-nowrap">16h00</td>
+                            <td class="py-4 px-6 font-bold text-red-900">FIN DE L'ÉPREUVE</td>
+                            <td class="py-4 px-6"><span class="bg-red-100 text-red-800 py-1 px-3 rounded-full text-xs font-bold">Git Push</span></td>
+                            <td class="py-4 px-6 text-red-900">
+                                <strong>Dernier Commit autorisé.</strong><br>
+                                Les codes, la vidéo et le README doivent être sur le repo. Aucun retard accepté.
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- MOBILE VIEW -->
+            <div class="md:hidden space-y-4">
+                <div class="border border-gray-200 rounded-lg p-4 shadow-sm bg-white">
+                    <div class="flex justify-between items-start mb-2"><span class="text-lg font-bold text-blue-600">08h00</span><span class="bg-green-100 text-green-700 py-1 px-2 rounded text-xs uppercase font-bold">Distanciel</span></div>
+                    <h3 class="font-bold text-gray-800">Début de l'épreuve</h3>
+                    <div class="mt-2 text-sm text-gray-600"><a href="https://github.com/AndryRAB/Exam-ml-master-m2" class="text-blue-600 font-bold">Lien GitHub</a></div>
+                    <div class="mt-2 text-sm text-gray-600"><a href="sujet.html" class="text-blue-600 font-bold">Version HTML</a></div>
+                </div>
+
+                <div class="border-l-4 border-l-orange-400 border-y border-r border-gray-200 rounded-lg p-4 shadow-sm bg-orange-50">
+                    <div class="flex justify-between items-start mb-2"><span class="text-lg font-bold text-orange-600">09h30</span></div>
+                    <h3 class="font-bold text-gray-800">Date limite d'inscription</h3>
+                    <div class="mt-2 text-sm text-gray-700"><a href="https://forms.gle/krV2Ad1p8p8uN5ja9" class="underline font-bold">Formulaire Google</a></div>
+                </div>
+
+                <div class="border-l-4 border-l-red-500 border-y border-r border-gray-200 rounded-lg p-4 shadow-sm bg-red-50">
+                    <div class="flex justify-between items-start mb-2"><span class="text-lg font-bold text-red-800">16h00</span><span class="bg-red-100 text-red-800 py-1 px-2 rounded text-xs uppercase font-bold">DEADLINE</span></div>
+                    <h3 class="font-bold text-red-900">FIN DE L'ÉPREUVE</h3>
+                    <p class="mt-2 text-sm text-red-900">Dernier Commit (Code + Vidéo) obligatoire.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

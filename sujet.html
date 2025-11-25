@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujet Examen ML - PoketraFinday</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Palette Madagascar Custom */
+        .bg-mada-header { background-color: #3E2723; } /* Café Sombre */
+        .text-mada-primary { color: #BF360C; } /* Terre Cuite / Brique */
+        .text-mada-secondary { color: #F57F17; } /* Moutarde / Soleil */
+        .bg-mada-accent { background-color: #D84315; } /* Orange Vif */
+        .bg-mada-light { background-color: #EFEBE9; } /* Sable très clair */
+        .border-mada { border-color: #D7CCC8; } /* Beige */
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#3E2723] pb-10">
+
+    <!-- Header avec Palette Mada -->
+    <header class="bg-mada-header text-white sticky top-0 z-50 shadow-md border-b-4 border-[#F57F17]">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div>
+                <div class="text-xs text-[#F57F17] font-semibold uppercase tracking-widest mb-1">ISPM - Institut Supérieur Polytechnique de Madagascar</div>
+                <h1 class="text-xl md:text-2xl font-bold uppercase tracking-wider flex items-center gap-2">
+                    <i class="fas fa-wallet text-[#F57F17]"></i> PoketraFinday
+                </h1>
+                <p class="text-[#D7CCC8] text-xs md:text-sm">Hackathon Machine Learning & Data Science</p>
+            </div>
+            <div class="mt-2 md:mt-0">
+                <span class="bg-[#5D4037] text-[#FFECB3] py-1 px-3 rounded-full text-xs font-semibold border border-[#8D6E63]">
+                    <i class="far fa-clock mr-1"></i> Durée : 8 Heures (08h-16h)
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 mt-6 space-y-6">
+
+        <!-- Section 1: Contexte -->
+        <section class="bg-white rounded-xl shadow-sm border border-[#D7CCC8] overflow-hidden">
+            <div class="bg-mada-light px-6 py-4 border-b border-[#D7CCC8] flex items-center gap-3">
+                <div class="bg-[#D7CCC8] p-2 rounded-lg text-[#5D4037]">
+                    <i class="fas fa-building fa-lg"></i>
+                </div>
+                <h2 class="font-bold text-lg text-[#3E2723]">1. Contexte et Organisation</h2>
+            </div>
+            <div class="p-6">
+                <div class="mb-4">
+                    <h3 class="font-bold text-mada-primary mb-1">À propos de PoketraFinday</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        <strong>PoketraFinday</strong> est une fintech malgache innovante qui vise à démocratiser l'accès aux services financiers. En transformant chaque téléphone mobile en un portefeuille électronique intelligent, elle permet aux populations non-bancarisées d'accéder au micro-crédit instantané et aux paiements digitaux.
+                    </p>
+                </div>
+
+                <div class="bg-red-50 border-l-4 border-[#BF360C] p-4 rounded-r mb-4">
+                    <h3 class="font-bold text-[#BF360C] text-sm uppercase mb-2"><i class="fas fa-shield-alt mr-2"></i>Mission Critique</h3>
+                    <p class="text-sm text-[#3E2723] leading-relaxed">
+                        Le succès de PoketraFinday repose entièrement sur la confiance. Or, cette confiance est aujourd'hui fragilisée. Une recrudescence de fraudes plus ou moins sophistiquées (vols de comptes nocturnes, ingénierie sociale ciblant les seniors) ralentit le développement du système.
+                        <br><br>
+                        Votre mission est de créer un modèle qui peut prédire la cible <code>is_fraud</code>. Cela aidera à sauver la réputation de la plateforme en bloquant les attaquants sans pénaliser les utilisateurs honnêtes.
+                    </p>
+                </div>
+                
+                <!-- Logistique -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-[#EFEBE9] p-3 rounded border border-[#D7CCC8]">
+                        <span class="font-bold block text-[#5D4037]">Durée</span> 8 Heures (08h00 - 16h00)
+                    </div>
+                    <div class="bg-[#EFEBE9] p-3 rounded border border-[#D7CCC8]">
+                        <span class="font-bold block text-[#5D4037]">Lieu</span> Distanciel Complet
+                    </div>
+                    <div class="bg-[#EFEBE9] p-3 rounded border border-[#D7CCC8]">
+                        <span class="font-bold block text-[#5D4037]">Deadline</span> 16h00 Précises (Commit)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Dataset -->
+        <section class="bg-white rounded-xl shadow-sm border border-[#D7CCC8] overflow-hidden">
+            <div class="bg-[#FFF3E0] px-6 py-4 border-b border-[#FFE0B2] flex items-center gap-3">
+                <div class="bg-[#FFE0B2] p-2 rounded-lg text-[#E65100]">
+                    <i class="fas fa-database fa-lg"></i>
+                </div>
+                <h2 class="font-bold text-lg text-[#E65100]">2. Description du Dataset</h2>
+            </div>
+
+            <!-- PLACEHOLDERS LIENS DATASET -->
+            <div class="p-6 bg-[#FFF8E1] border-b border-[#FFE0B2]">
+                <h3 class="font-bold text-[#F57F17] mb-3 text-sm uppercase tracking-wide">Fichiers Requis</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Train Set -->
+                    <a href="ressources/train.csv" class="group flex flex-col justify-between p-4 bg-white border-2 border-[#FFE0B2] rounded-lg hover:border-[#F57F17] hover:shadow-md transition cursor-pointer text-center">
+                        <i class="fas fa-download text-[#F57F17] text-2xl mb-2 group-hover:scale-110 transition"></i>
+                        <div>
+                            <span class="block font-bold text-[#E65100] group-hover:text-[#BF360C]">ressources/train.csv</span>
+                            <span class="text-xs text-gray-500">Entraînement (30k lignes)</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Test Set -->
+                    <a href="ressources/test.csv" class="group flex flex-col justify-between p-4 bg-white border-2 border-[#FFE0B2] rounded-lg hover:border-[#F57F17] hover:shadow-md transition cursor-pointer text-center">
+                        <i class="fas fa-file-csv text-[#F57F17] text-2xl mb-2 group-hover:scale-110 transition"></i>
+                        <div>
+                            <span class="block font-bold text-[#E65100] group-hover:text-[#BF360C]">ressources/test.csv</span>
+                            <span class="text-xs text-gray-500">Test (Sans Target)</span>
+                        </div>
+                    </a>
+
+                    <!-- README Model -->
+                    <a href="ressources/readme-model.md" class="group flex flex-col justify-between p-4 bg-white border-2 border-[#FFE0B2] rounded-lg hover:border-[#F57F17] hover:shadow-md transition cursor-pointer text-center">
+                        <i class="fab fa-markdown text-[#F57F17] text-2xl mb-2 group-hover:scale-110 transition"></i>
+                        <div>
+                            <span class="block font-bold text-[#E65100] group-hover:text-[#BF360C]">ressources/readme-model.md</span>
+                            <span class="text-xs text-gray-500">Canevas de rapport</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Desktop Table -->
+            <div class="w-full overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-gray-50 text-gray-500 text-xs uppercase font-semibold">
+                        <tr>
+                            <th class="px-6 py-3 border-b">Colonne</th>
+                            <th class="px-6 py-3 border-b">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm divide-y divide-gray-100">
+                        <tr>
+                            <td class="px-6 py-3 font-mono text-mada-primary font-bold whitespace-nowrap">transaction_id</td>
+                            <td class="px-6 py-3">Identifiant unique de la transaction (UUID).</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-3 font-mono text-mada-primary font-bold whitespace-nowrap">step</td>
+                            <td class="px-6 py-3">Unité de temps (1 heure). De 1 à 744 (31 jours).</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-3 font-mono text-mada-primary font-bold whitespace-nowrap">type</td>
+                            <td class="px-6 py-3">PAYMENT, TRANSFER, CASH_OUT, DEBIT.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-3 font-mono text-mada-primary font-bold whitespace-nowrap">amount</td>
+                            <td class="px-6 py-3">Montant en Ariary (MGA).</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-3 font-mono text-mada-primary font-bold whitespace-nowrap">customer_id</td>
+                            <td class="px-6 py-3">Identifiant unique du client émetteur.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-3 font-mono text-mada-primary font-bold whitespace-nowrap">age</td>
+                            <td class="px-6 py-3">Âge du client émetteur.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-3 font-mono text-red-600 font-bold whitespace-nowrap">is_fraud</td>
+                            <td class="px-6 py-3 font-semibold">Cible : 0 = Légitime, 1 = Fraude.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+             <div class="px-6 py-3 bg-[#FFF3E0] border-t border-[#FFE0B2]">
+                <p class="text-sm text-[#E65100] italic"><i class="fas fa-lightbulb mr-2"></i><strong>Indice crucial :</strong> Pour vos analyses de Feature Engineering, supposez que le <strong>Step 1</strong> correspond à la première heure d'un <strong>LUNDI</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Mission -->
+        <section class="bg-white rounded-xl shadow-sm border border-[#D7CCC8] overflow-hidden">
+             <div class="bg-[#F1F8E9] px-6 py-4 border-b border-[#DCEDC8] flex items-center gap-3">
+                <div class="bg-[#DCEDC8] p-2 rounded-lg text-[#33691E]">
+                    <i class="fas fa-bullseye fa-lg"></i>
+                </div>
+                <h2 class="font-bold text-lg text-[#33691E]">3. Votre Mission</h2>
+            </div>
+            <div class="p-6">
+                <p class="text-sm text-[#4E342E] mb-4">Votre objectif est de maximiser le <strong>F1-Score</strong> sur la détection de fraude et de faire un rapport sur les fraudes que vous détectez.</p>
+                
+                <div class="space-y-4">
+                    <!-- Etape 1 -->
+                    <div class="border border-[#DCEDC8] rounded-lg p-4 bg-[#F9FBE7]">
+                        <h3 class="font-bold text-[#33691E] text-sm uppercase mb-2">Étape 1 : EDA et Préparation</h3>
+                        <p class="text-sm text-[#5D4037]">Faites une Exploratory Data Analysis orientée vers la cible <code>is_fraud</code>. Préparez les données (variables catégorielles, gestion des manquants, suppression des données inutiles).</p>
+                    </div>
+
+                    <!-- Etape 2 -->
+                    <div class="border border-[#FFECB3] rounded-lg p-4 bg-[#FFF8E1]">
+                        <h3 class="font-bold text-[#FF6F00] text-sm uppercase mb-2">Étape 2 : Baseline (Régression Logistique)</h3>
+                        <p class="text-sm text-[#5D4037]">Vous devez <strong>commencer</strong> par entraîner une Régression Logistique. Ce modèle servira de référence.</p>
+                    </div>
+
+                    <!-- Etape 3 -->
+                    <div class="border border-[#FFE0B2] rounded-lg p-4 bg-[#FFF3E0]">
+                        <h3 class="font-bold text-[#E65100] text-sm uppercase mb-2">Étape 3 : Exploration & Modélisation</h3>
+                        <p class="text-sm text-[#5D4037]">Explorez librement : Advanced Feature Engineering (temporel), Modèles avancés (Random Forest, XGBoost...), Hyperparameter tuning, Stratégies de déséquilibre (SMOTE).</p>
+                    </div>
+
+                    <!-- Etape 4 -->
+                    <div class="border border-[#D7CCC8] rounded-lg p-4 bg-[#EFEBE9]">
+                        <h3 class="font-bold text-[#4E342E] text-sm uppercase mb-2">Étape 4 : Génération de la Soumission</h3>
+                        <p class="text-sm text-[#5D4037]">Générer le fichier <code>submission.csv</code> en utilisant le test set fourni dans <code>ressources/test.csv</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Livrables -->
+        <section class="bg-white rounded-xl shadow-sm border border-[#D7CCC8] overflow-hidden">
+            <div class="bg-[#EFEBE9] px-6 py-4 border-b border-[#D7CCC8] flex items-center gap-3">
+                <div class="bg-[#D7CCC8] p-2 rounded-lg text-[#4E342E]">
+                    <i class="fas fa-box-open fa-lg"></i>
+                </div>
+                <h2 class="font-bold text-lg text-[#3E2723]">4. Livrables (Deadline : 16h00)</h2>
+            </div>
+            <div class="p-6">
+                <p class="mb-4 text-sm text-[#5D4037]">Tout doit être pushé sur votre repo GitHub avant 16h00. Aucun retard toléré.</p>
+                <ul class="space-y-4">
+                    <!-- Submission CSV -->
+                    <li class="flex flex-col bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-file-csv mr-3 text-[#BF360C] text-xl"></i>
+                            <span class="font-bold text-[#3E2723]">1. submission.csv</span>
+                        </div>
+                        <div class="text-sm text-gray-600 ml-8">
+                            <p class="mb-2">Le fichier doit contenir 2 colonnes : <code>transaction_id</code> et <code>is_fraud</code>.</p>
+                            <div class="bg-gray-800 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto">
+                                <span class="text-gray-400"># Exemple Pandas :</span><br>
+                                submission = pd.DataFrame({<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;"transaction_id": test_df["transaction_id"],<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;"is_fraud": model.predict(X_test)<br>
+                                })<br>
+                                submission.to_csv("submission.csv", index=False)
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Vidéo -->
+                    <li class="flex items-center bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <i class="fas fa-video mr-3 text-[#D84315] text-xl"></i>
+                        <div>
+                            <span class="font-bold text-[#3E2723] block">2. Vidéo de Présentation (3-5 min)</span>
+                            <span class="text-sm text-gray-600">
+                                Remplace la soutenance. Présentez : Équipe, EDA, Types de fraudes détectés, Baseline vs Final.
+                            </span>
+                        </div>
+                    </li>
+
+                    <!-- Code & Notebook -->
+                    <li class="flex flex-col bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fab fa-python mr-3 text-[#F9A825] text-xl"></i>
+                            <span class="font-bold text-[#3E2723]">3. Code & Notebook</span>
+                        </div>
+                        <div class="text-sm text-gray-600 ml-8">
+                            <p>Le code doit être clairement commenté et structuré logiquement.</p>
+                        </div>
+                    </li>
+
+                    <!-- Rapport README -->
+                    <li class="flex flex-col bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fab fa-markdown mr-3 text-[#4E342E] text-xl"></i>
+                            <span class="font-bold text-[#3E2723]">4. Rapport (README.md)</span>
+                        </div>
+                        <div class="text-sm text-gray-600 ml-8">
+                            <p>Utilisez le modèle <code>ressources/readme-model.md</code>. Il contient les questions sur F1-Score, FP/FN et les scénarios de fraude.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Critères d'Évaluation -->
+        <section class="bg-white rounded-xl shadow-sm border border-[#D7CCC8] overflow-hidden">
+            <div class="p-6">
+                <h2 class="font-bold text-lg text-[#3E2723] mb-4 border-b border-[#D7CCC8] pb-2">5. Critères d'Évaluation</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex justify-between items-center bg-[#F1F8E9] p-3 rounded border border-[#DCEDC8]">
+                        <span class="font-semibold text-[#33691E]"><i class="fas fa-chart-line mr-2"></i>Performance (F1-Score)</span>
+                        <span class="font-bold text-[#33691E] bg-white px-2 py-1 rounded shadow-sm border border-[#DCEDC8]">30%</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-[#FFF8E1] p-3 rounded border border-[#FFE0B2]">
+                        <span class="font-semibold text-[#F57F17]"><i class="fas fa-cogs mr-2"></i>Feature Engineering</span>
+                        <span class="font-bold text-[#F57F17] bg-white px-2 py-1 rounded shadow-sm border border-[#FFE0B2]">20%</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-[#EFEBE9] p-3 rounded border border-[#D7CCC8]">
+                        <span class="font-semibold text-[#4E342E]"><i class="fas fa-video mr-2"></i>Présentation & Vidéo</span>
+                        <span class="font-bold text-[#4E342E] bg-white px-2 py-1 rounded shadow-sm border border-[#D7CCC8]">20%</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-[#ECEFF1] p-3 rounded border border-[#CFD8DC]">
+                        <span class="font-semibold text-[#455A64]"><i class="fas fa-code mr-2"></i>Qualité Code</span>
+                        <span class="font-bold text-[#455A64] bg-white px-2 py-1 rounded shadow-sm border border-[#CFD8DC]">15%</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-[#F3E5F5] p-3 rounded border border-[#E1BEE7]">
+                        <span class="font-semibold text-[#7B1FA2]"><i class="fas fa-book mr-2"></i>Réponses README</span>
+                        <span class="font-bold text-[#7B1FA2] bg-white px-2 py-1 rounded shadow-sm border border-[#E1BEE7]">15%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-4xl mx-auto px-4 mt-8 text-center text-[#8D6E63] text-sm">
+        <p>&copy; 2025 PoketraFinday - ISPM - www.ispm-edu.com.</p>
+    </footer>
+
+</body>
+</html>
