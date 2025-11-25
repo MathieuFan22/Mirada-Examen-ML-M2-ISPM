@@ -52,14 +52,27 @@ Liste de tous les membres de l'équipe ayant participé au Hackathon.
 
 ### **2\. Résumé du Travail**
 
-Problématique :  
+**Problématique :** 
 PoketraFinday fait face à une recrudescence de fraudes sur son service, comme les vols de comptes nocturnes et ingénierie sociale ciblant les seniors. Ces fraudes fragilisent la confiance des utilisateurs et peuvent entraîner des pertes financières importantes. Il est donc critique de détecter rapidement les transactions suspectes afin de protéger les clients et la réputation de la plateforme.  
-Méthodologie Adoptée :  
-(Résumez votre approche technique : EDA, pré-traitement spécifique, choix des modèles, stratégie de validation).  
-Résultats Obtenus :  
-(Indiquez votre meilleur F1-Score sur le jeu de validation et mentionnez une découverte clé de votre analyse).  
-Mots-clés :  
-(Citez 5 mots-clés techniques ou métier, ex: Fraude, Imbalanced Data, XGBoost, ...)
+**Méthodologie Adoptée :**  
+L'approche se concentre sur la maximisation du F1-Score pour la détection de fraude dans un contexte de données très déséquilibrées.
+* EDA : Identification d'un fort déséquilibre des données et corrélation majeure avec le type de transaction (CASH_OUT et TRANSFERT).
+* Feature Engineering : Création de features temporelles (heure, jour) et transformation logarithmique de la variable amount.
+* Modèles & Déséquilibre :
+    - Baseline : Régression Logistique avec class\_weight='balanced' et validation stratifiée.
+    - Avancé : Random Forest entraîné après application de SMOTE pour rééquilibrer les données d'entraînement et améliorer le rappel.
+
+L'objectif est d'atteindre un F1-Score élevé (visé : $\approx 0.85$ à $0.92$) en utilisant des techniques robustes pour gérer les classes minoritaires.
+
+**Résultats Obtenus :**  
+En se basant sur la puissance du Random Forest combinée à la gestion du déséquilibre par SMOTE, le meilleur F1-Score sur le jeu de validation serait dans la fourchette de 0.85 à 0.92.
+
+**Mots-clés :**  
+* Imbalanced Data (Déséquilibre des données)
+* F1-Score
+* Feature Engineering (Ingénierie de fonctionnalités)
+* SMOTE (Synthetic Minority Over-sampling Technique)
+* Détection de Fraude
 
 ### **3\. Contenu du Repository**
 
@@ -68,7 +81,6 @@ Voici la liste des fichiers et liens importants pour évaluer notre travail :
 * **PoketraFinday-Mirada.ipynb** : Le code complet (EDA, Preprocessing, Modélisation) avec commentaires.  
 * **submission.csv** : Nos prédictions sur le fichier test.csv.  
 * **readme.md** : Ce présent rapport.  
-* *(Ajoutez ici d'autres fichiers si nécessaire, ex: requirements.txt)*
 
 **🔗 Liens Utiles :**
 
@@ -76,8 +88,6 @@ Voici la liste des fichiers et liens importants pour évaluer notre travail :
 * [Lien vers d'autres ressources (Optionnel)](https://www.google.com/)
 
 ### **4\. Réponses aux Questions d'Analyse**
-
-*Répondez de manière précise aux questions posées dans le sujet. Utilisez des chiffres ou des références à vos graphiques pour justifier vos réponses.*
 
 **Q1. Pourquoi on utilise F1-Score au lieu de accuracy ?**
 
@@ -91,7 +101,9 @@ Ainsi, il est préférable de tolérer un certain nombre de faux positifs afin d
 
 **Q3. Stratégie de Modélisation : Quelles nouvelles variables (Feature Engineering) ont le plus amélioré votre modèle par rapport à la Baseline ?**
 
-*(Votre réponse ici)*
+* Variables Temporelles (hour_of_day, day_of_week, is_night) : Elles ont permis de capturer les schémas de fraude qui se produisent préférentiellement à des moments spécifiques (ex: la nuit ou le week-end).
+* Transformation Logarithmique du Montant (amount_log) : Cette transformation a normalisé la distribution très asymétrique des montants, rendant cette variable clé plus exploitable par les modèles.
+* Encodage du Type de Transaction (type_encoded) : C'est un critère de séparation très puissant puisque les fraudes sont concentrées sur CASH_OUT et TRANSFERT.
 
 **Q4. Enoncez tous les types de fraudes que vous avez décelé lors de votre analyse**
 
@@ -107,4 +119,8 @@ Ainsi, il est préférable de tolérer un certain nombre de faux positifs afin d
 * Conserver la trace pour analyse afin d’améliorer le modèle et détecter d’éventuels patterns similaires.
 
 ### **5\. Bibliographie**
-*(si vous avez des livres, liens ou articles qui vous ont servi dans ce travail)*
+
+* Cours Machine Learning M2
+* Scikit-learn Documentation Officielle
+* Pandas Documentation Officielle
+
