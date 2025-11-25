@@ -1,103 +1,112 @@
-# **ISPM \- Institut Supérieur Polytechnique de Madagascar**
+# **Rapport de Projet \- PoketraFinday**
 
-www.ispm-edu.com
+## **Examen Final Machine Learning & Data Science**
 
-# **EXAMEN FINAL : DÉTECTION DE FRAUDE MOBILE MONEY**
+Réalisé au sein de ISPM - Madagascar (www.ispm-edu.com)
 
-**Machine Learning & Data Science – Hackathon 8H**
+### **1\. Informations sur le Groupe**
 
-## **1\. Contexte**
+Merci de lister tous les membres de l'équipe ayant participé au Hackathon.
 
-Vous êtes l'équipe "Data & Sécurité" de la startup *PoketraFinday*.
+#### Membre 1 : 
+* nom : 
+* prénom(s) :
+* classe : 
+* numéro : 
+* rôle : *(développeur, analyste, présentateur, ...)*
 
-### **La Startup**
+#### Membre 2 : 
+* nom : 
+* prénom(s) :
+* classe : 
+* numéro : 
+* rôle : *(développeur, analyste, présentateur, ...)*
 
-*PoketraFinday* est une fintech malgache innovante qui vise à démocratiser l'accès aux services financiers. En transformant chaque téléphone mobile en un portefeuille électronique intelligent, elle permet aux populations non-bancarisées d'accéder au micro-crédit instantané et aux paiements digitaux.
+#### Membre 3 : 
+* nom : 
+* prénom(s) :
+* classe : 
+* numéro : 
+* rôle : *(développeur, analyste, présentateur, ...)*
 
-### **La Problématique de Sécurité (Mission Critique)**
+#### Membre 4 : 
+* nom : 
+* prénom(s) :
+* classe : 
+* numéro : 
+* rôle : *(développeur, analyste, présentateur, ...)*
 
-Le succès de *PoketraFinday* repose entièrement sur la confiance. Or, cette confiance est aujourd'hui fragilisée. Une recrudescence de fraudes plus ou moins sophistiquées (vols de comptes nocturnes, ingénierie sociale ciblant les seniors, ...) ralentit le développement du système.
+#### Membre 5 : 
+* nom : 
+* prénom(s) :
+* classe : 
+* numéro : 
+* rôle : *(développeur, analyste, présentateur, ...)*
 
-Votre mission est de créer un modèle qui peut prédire la cible is\_fraud. Cela aidera à sauver la réputation de la plateforme en bloquant les attaquants sans pénaliser les utilisateurs honnêtes.
+#### Membre 6 : 
+* nom : 
+* prénom(s) :
+* classe : 
+* numéro : 
+* rôle : *(développeur, analyste, présentateur, ...)*
 
-### **Modalités Logistiques**
+#### Membre 7 : 
+* nom : 
+* prénom(s) :
+* classe : 
+* numéro : 
+* rôle : *(développeur, analyste, présentateur, ...)*
 
-* **Durée :** 8 Heures (08h00 \- 16h00).  
-* **Lieu :** Distanciel complet. Pas de déplacement à l'ISPM.  
-* **Deadline :** Le dernier commit sur votre repository doit être effectué à **16h00 précises**.
+### **2\. Résumé du Travail**
 
-## **2\. Description du Dataset**
+Problématique :  
+(Rédigez ici 2 à 3 phrases expliquant le problème de sécurité détecté chez PoketraFinday et pourquoi il est critique de le résoudre).  
+Méthodologie Adoptée :  
+(Résumez votre approche technique : EDA, pré-traitement spécifique, choix des modèles, stratégie de validation).  
+Résultats Obtenus :  
+(Indiquez votre meilleur F1-Score sur le jeu de validation et mentionnez une découverte clé de votre analyse).  
+Mots-clés :  
+(Citez 5 mots-clés techniques ou métier, ex: Fraude, Imbalanced Data, XGBoost, ...)
 
-Vous disposez d'un jeu de données avec les colonnes suivantes :
+### **3\. Contenu du Repository**
 
-| Colonne | Description |
-| :---- | :---- |
-| **transaction\_id** | Identifiant unique de la transaction (UUID). |
-| **step** | Unité de temps (1 heure). De 1 à 744 (31 jours). |
-| **type** | PAYMENT, TRANSFER, CASH\_OUT, DEBIT. |
-| **amount** | Montant en Ariary (MGA). |
-| **customer\_id** | Identifiant unique du client émetteur. |
-| **age** | Âge du client émetteur. |
-| **is\_fraud** | Cible : 0 \= Légitime, 1 \= Fraude. |
+Voici la liste des fichiers et liens importants pour évaluer notre travail :
 
-**Indice crucial :** Pour vos analyses de Feature Engineering, supposez que le **Step 1** correspond à la première heure d'un **LUNDI**.
+* **notebook.ipynb** : Le code complet (EDA, Preprocessing, Modélisation) avec commentaires.  
+* **submission.csv** : Nos prédictions sur le fichier test.csv.  
+* **readme.md** : Ce présent rapport.  
+* *(Ajoutez ici d'autres fichiers si nécessaire, ex: requirements.txt)*
 
-## **3\. Votre Mission**
+**🔗 Liens Utiles :**
 
-Votre objectif est de maximiser le F1-Score sur la détection de fraude et de faire un rapport sur les fraudes que vous détectez à partir de vos analyses. Le fichier du train set est disponible dans ressources/train.csv.
+* [**LIEN VERS LA VIDÉO DE PRÉSENTATION** (Google Drive / YouTube)](https://www.youtube.com/)  
+* [Lien vers d'autres ressources (Optionnel)](https://www.google.com/)
 
-### **Étape 1 : EDA et préparation initiale des données**
+### **4\. Réponses aux Questions d'Analyse**
 
-Faites une Exploratory Data Analysis orientée vers la cible is\_fraud. Préparez les données en appliquant les bonnes pratiques (préparations des variables catégorielles, feature engineering basiques, gestion des variables manquantes, suppression des données inutiles).
+*Répondez de manière précise aux questions posées dans le sujet. Utilisez des chiffres ou des références à vos graphiques pour justifier vos réponses.*
 
-### **Étape 2 : Baseline : Régression Logistique**
+**Q1. Pourquoi on utilise F1-Score au lieu de accuracy ?**
 
-Vous devez commencer par entraîner une Régression Logistique.
+*(Votre réponse ici)*
 
-* Ce modèle servira de référence (Baseline).  
-* Vous devez analyser ses résultats avant de passer à plus complexe.
+**Q2. Qu'est ce qui est plus grave ici, les Faux Positifs ou les Faux Négatifs ?**
 
-### **Étape 3 : Exploration & Modélisation**
+*(Votre réponse ici)*
 
-Une fois la baseline établie, vous êtes libres d'explorer d'autres approches selon votre savoir faire :
+**Q3. Stratégie de Modélisation : Quelles nouvelles variables (Feature Engineering) ont le plus amélioré votre modèle par rapport à la Baseline ?**
 
-* Advanced Feature Engineering (Création de variables temporelles, etc.).  
-* Modèles avancés (Decision Tree, Random Forest, XGBoost, Réseaux de Neurones...).  
-* Hyperparameter tuning (si besoin est).  
-* Stratégies de gestion du déséquilibre (SMOTE, etc.).
+*(Votre réponse ici)*
 
-### **Étape 4 : Génération de la Soumission**
+**Q4. Enoncez tous les types de fraudes que vous avez décelé lors de votre analyse**
 
-Générer le fichier submission.csv en utilisant le test set (sans cible) fourni dans ressources/test.csv.
+* *(fraude1)*
+* *(fraude2)*
+* *(fraude3)*
+* *(...)*
 
-**Exemple de code (Python/Pandas) :**
+**Q5. Selon vous, quelle décision prendre si une transaction *en cours* est détectée comme *fraude* par le modèle ?**
+*(votre réponse ici)*
 
-submission \= pd.DataFrame({  
-    "transaction\_id": test\_df\["transaction\_id"\],  
-    "is\_fraud": model.predict(X\_test)  
-})  
-submission.to\_csv("submission.csv", index=False)
-
-## **4\. Livrables (Avant 16h00)**
-
-Tout doit être disponible sur votre Repository GitHub.
-
-1. **submission.csv :** Les prédictions sur le test set (colonnes transaction\_id, is\_fraud).  
-2. **Vidéo de Présentation (3-5 min) :**  
-   * Remplace la soutenance physique.  
-   * Présentez votre équipe, votre analyse (EDA), les types de fraudes identifiés, votre Baseline vs Modèle Final.  
-   * Lien de la vidéo dans le README ou fichier vidéo dans le repo (si \< 100Mo).  
-3. **Notebook & Code :** Le code doit être clairement commenté et structuré logiquement.  
-4. **README.md :** Utilisez le modèle *ressources/readme-model.md* fourni pour votre rapport. Il inclut les questions sur F1-Score, FP/FN et la décision opérationnelle.
-
-## **5\. Critères d'Évaluation**
-
-| Critère | Poids |
-| :---- | :---- |
-| **Performance (F1-Score)** | 30% |
-| **Feature Engineering** | 20% |
-| **Présentation & Vidéo** | 20% |
-| **Qualité du Code** | 15% |
-| **Réponses README** | 15% |
-
-**Bon courage \!**
+### **5\. Bibliographie**
+*(si vous avez des livres, liens ou articles qui vous ont servi dans ce travail)*
